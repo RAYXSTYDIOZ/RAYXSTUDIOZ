@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAYXSTDUIOZ</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <section class="container">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm_0h1ToZGlNJbu0wv9lTMAN5Vn5_fJJEG2sdF_VTGqph_YofXmt9Hni4DbNzl-U9nZ-kdj4txzy-Lv850wX2lxJwIO-bMPVFfP3bTSIZnn8UdUfDi5LzpWC_qskBZRBT8bgiLNr-RLHBj52AZAQA5mjrwSia2Wwgltvp1yYcVdtYCwrGfrpDzkgmpsuU/s320/InShot_20240225_132954034.gif" alt="" class="image" />
+    <H1>CLICK ANYWHERE TO PLAY MUSIC</H1> <header>COMING SOON..</header>
+    <p>
+      EXPECTED RELEASE DATE
+    </p>
+    <div class="time-content">
+      <div class="time days">
+        <span class="number"></span>
+        <span class="text">days</span>
+      </div>
+      <div class="time hours">
+        <span class="number"></span>
+        <span class="text">hours</span>
+      </div>
+      <div class="time minutes">
+        <span class="number"></span>
+        <span class="text">minutes</span>
+      </div>
+      <div class="time seconds">
+        <span class="number"></span>
+        <span class="text">seconds</span>
+      </div>
+    </div>
+
+    <div class="email-content">
+      <p>SUBSCIRBE OUR EMAIL TO GET NOTIFIED WHEN THE SITE IS READY!</p>
+
+      <div class="input-box">
+        <input id="emailInput" type="email" placeholder="Enter your email" />
+        <button onclick="subscribe()">Notify Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+  <script>
+    function subscribe() {
+      var email = document.getElementById("emailInput").value;
+      if (validateEmail(email)) {
+        alert("we will notify you when the site is launched!");
+        localStorage.setItem("subscribed", "true");
+        // Additional logic for email subscription goes here
+      } else {
+        alert("Please enter a valid email address.");
+      }
+    }
+
+    function validateEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    }
+
+    // Timer countdown logic
+    var countDownDate = new Date("Feb 27, 2024 13:30:00").getTime();
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.querySelector(".days .number").innerHTML = days;
+      document.querySelector(".hours .number").innerHTML = hours;
+      document.querySelector(".minutes .number").innerHTML = minutes;
+      document.querySelector(".seconds .number").innerHTML = seconds;
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.querySelector(".container").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+<STYLE> /* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  display: flex;
+  row-gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.container .image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.container header {
+  font-size: 60px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+.container p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  max-width: 550px;
+  text-align: center;
+}
+.container .time-content {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+}
+.time-content .time {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.time .number,
+.time .text {
+  font-weight: 500;
+  color: #fff;
+}
+.time .number {
+  font-size: 40px;
+}
+.time .text {
+  text-transform: capitalize;
+  font-size: 12px;
+}
+.email-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+}
+.email-content p {
+  font-size: 13px;
+}
+.input-box {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  max-width: 360px;
+  width: 100%;
+  margin-top: 20px;
+  column-gap: 20px;
+}
+.input-box input,
+.input-box button {
+  height: 100%;
+  outline: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 400;
+}
+.input-box input {
+  width: 100%;
+  padding: 0 15px;
+  color: #fff;
+}
+input::placeholder {
+  color: #fff;
+}
+.input-box button {
+  cursor: pointer;
+  color: #fff;
+  white-space: nowrap;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+.input-box button:hover {
+  background-color: #fff;
+  color: #0d6a81;
+}
+@media screen and (max-width: 300px) {
+  .container header {
+    font-size: 50px;
+  }
+}</STYLE>
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-c6d59130-ce11-447b-84ba-e13d2d3a3911" data-elfsight-app-lazy></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Anywhere to Play Music</title>
+<!-- Include SweetAlert2 library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+</head>
+<body>
+
+<!-- Hidden audio element to play music -->
+<audio id="myAudio" loop>
+  <source src="your-audio-file.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Script to play music on click -->
+<script>
+document.addEventListener('click', function() {
+  var audio = document.getElementById("myAudio");
+  audio.play();
+});
+</script>
+
+<!-- Script to show SweetAlert and save user preference -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Check if the user preference is already saved
+  var userPreference = localStorage.getItem('musicPreference');
+  
+  // If user preference is not saved, show the SweetAlert
+  if (!userPreference) {
+    Swal.fire({
+      title: 'Click Anywhere to Play Music',
+      icon: 'info',
+      text: 'Click OK to allow music on this site.',
+      showCancelButton: true,
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      // If user clicks OK, save the preference in localStorage
+      if (result.isConfirmed) {
+        localStorage.setItem('musicPreference', 'allowed');
+      }
+    });
+  }
+});
+</script>
+
+<!-- Include SweetAlert2 library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
