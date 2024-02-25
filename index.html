@@ -241,8 +241,8 @@ document.addEventListener('DOMContentLoaded', function () {
     Swal.fire({
       title: 'Click Anywhere to Play Music',
       icon: 'info',
-      text: 'Click OK to allow music on this site.',
-      showCancelButton: true,
+      text: '',
+      showCancelButton: false,
       confirmButtonText: 'OK',
     }).then((result) => {
       // If user clicks OK, save the preference in localStorage
