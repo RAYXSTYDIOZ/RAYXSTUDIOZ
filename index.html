@@ -259,3 +259,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+window.onload = function() {
+    // Check if the user has visited the site before
+    var isFirstVisit = localStorage.getItem('isFirstVisit');
+
+    // If it's the first visit, set the flag in local storage and refresh after 5 seconds
+    if (!isFirstVisit) {
+        localStorage.setItem('isFirstVisit', 'true');
+        setTimeout(function() {
+            location.reload();
+        }, 5000); // 5000 milliseconds = 5 seconds
+    }
+}
+</script>
+</head>
+<body>
+<!-- Your site content here -->
+
+</body>
+</html>
